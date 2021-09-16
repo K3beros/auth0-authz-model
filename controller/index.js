@@ -3,7 +3,7 @@ const createPet = require('../controller/userController').register
 const router = express()
 
 
-router.post('/', async(req, res) => {
+router.post('/register', async(req, res) => {
     try {
         const {name, type, owners_name, email, password, gender, features, breed,age} = req.body
         const newPet = {
@@ -18,10 +18,11 @@ router.post('/', async(req, res) => {
         // (e) => {
         //     res.status(400).send(e)
         // })
-        const {petId} = await createPet(newPet)
-        res.json({
-            petId
-        })
+        const petId = await createPet(newPet)
+        console.log(petId)
+        res.json(
+                petId
+            )
     }
 
     catch(err) {
@@ -29,6 +30,10 @@ router.post('/', async(req, res) => {
             message: err.message
         })
     }
+})
+
+router.get('/', (req, res) => {
+    res.status(200).json('Hello world')
 })
 
 module.exports = router

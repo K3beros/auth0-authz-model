@@ -1,6 +1,7 @@
+const request = require('supertest')
 const Pet = require('../model/pet')
 const createPet = require('../controller/userController')
-
+//const app = require('../app')
 
 const db = require('./db')
 beforeAll(async () => await db.connect())
@@ -19,6 +20,15 @@ describe('Pet', () => {
             .toThrow()
     })
 })
+
+// describe('Get route', () => {
+//     it('page should return hello world', async (done) => {
+//       const res = await request(app).get('/v1/pet/')
+//       expect(res.statusCode).toEqual(200)
+//       expect(res.body).toEqual('Hello world')
+//       done()
+//     })
+//   })
 
 
 

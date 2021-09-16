@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
-app.use('/pet', routeIndex)
+app.use('/v1/pet', routeIndex)
 
 //
 

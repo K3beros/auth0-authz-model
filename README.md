@@ -1,1 +1,0 @@
-[![Build Status](https://app.travis-ci.com/K3beros/auth0-authz-model.svg?branch=main)](https://app.travis-ci.com/K3beros/auth0-authz-model)
