@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon node index.js",
+    "lint": "eslint '**/*.js'",
     "dev": "nodemon index.js",
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
     "test": "jest --testEnvironment=node --runInBand ./test"
   },
   "jest": {
@@ -30,6 +32,9 @@
     "@babel/preset-env": "^7.15.6",
     "@shelf/jest-mongodb": "^2.0.3",
     "babel-jest": "^27.1.1",
+    "coveralls": "^3.1.1",
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
     "nodemon": "^2.0.12",
     "supertest": "^6.1.6"
   }
