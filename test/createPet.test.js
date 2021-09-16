@@ -17,21 +17,19 @@ describe('Pet', () => {
   });
 });
 
-// describe('Get route', () => {
-//     it('page should return hello world', async (done) => {
-//       const res = await request(app).get('/v1/pet/')
-//       expect(res.statusCode).toEqual(200)
-//       expect(res.body).toEqual('Hello world')
-//       done()
-//     })
-//   })
+describe('Errors thrown when', () => {
+  it('Email is repeated', async () => {
+    await createPet.register(newPetComplete);
+    await expect(createPet.register(duplicatePet)).rejects.toThrow();
+  });
+});
 
 
 const newPetComplete = {
   name: 'jack',
   type: 'dog',
   owners_name: 'jessica',
-  email: 'jessica@mail.com',
+  email: 'jack@mail.com',
   password: 'kkkkk',
   gender: 'Male',
   features: 'brown eyes',
@@ -41,13 +39,13 @@ const newPetComplete = {
 
 // eslint-disable-next-line no-unused-vars
 const duplicatePet = {
-  name: 'jane',
-  type: 'dog',
-  owners_name: 'jessica',
-  email: 'jessica@mail.com',
+  name: 'jake',
+  type: 'cat',
+  owners_name: 'jeff',
+  email: 'jack@mail.com',
   password: 'kkkkk',
-  gender: 'Male',
-  features: 'brown eyes',
-  breed: 'shephard',
+  gender: 'Female',
+  features: 'black eyes',
+  breed: 'wild cat',
   age: 9,
 };

@@ -5,10 +5,9 @@ module.exports.register =async (newPet) => {
     throw new Error('No new pet');
   }
   try {
-    const existingPet = await Pet.find({email: newPet.email});
-    if (existingPet) {
-      console.log('Email already exists');
-    }
+    const existingPet = await Pet.findOne({email: newPet.email});
+    // eslint-disable-next-line max-len
+    if (existingPet) throw new Error(`A pet with the email ${newPet.email} already exists`);
     const savePet = new Pet(newPet);
     await savePet.save();
     return {

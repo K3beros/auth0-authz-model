@@ -12,15 +12,7 @@ router.post('/register', async (req, res) => {
     const newPet = {
       name, type, owners_name, email, password, gender, features, breed, age,
     };
-    // await createPet(newPet).then(pet => {
-    //     console.log('Pet here', pet)
-    //     res.json({
-    //         pet
-    //     })
-    // },
-    // (e) => {
-    //     res.status(400).send(e)
-    // })
+
     const petId = await createPet(newPet);
     console.log(petId);
     res.json(
